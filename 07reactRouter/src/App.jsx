@@ -3,17 +3,32 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import { Routes, BrowserRouter, Route, Link, Router } from "react-router-dom";
+import About from "./components/About/About";
+import Contact  from "./components/Contact/Contact";
+import User from "./components/User/User";
+import Github from "./components/Github/Github";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <>
-      <h1 className="bg-gray-400 p-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, doloribus
-        accusantium maxime harum nam ab cupiditate nesciunt nobis modi itaque
-        ratione a deserunt! Dolor in possimus beatae rerum alias quaerat.
-      </h1>
+      <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={ <Contact/>}/>
+        <Route path="/user/:userId" element={ <User/>}/>
+        <Route path="/github" element={ <Github/>}/>
+        
+      </Routes>
+      <Footer/>
+      </BrowserRouter>
     </>
   );
 }
